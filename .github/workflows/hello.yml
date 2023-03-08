@@ -8,37 +8,37 @@ jobs:
         name: Printing Date1
         runs-on: ubuntu-latest
         steps:
-          - name: PrintDate1
-            uses: actions/checkout@v2
-          - name: Date1
-            run: echo $(date)
+        - name: PrintDate1
+          uses: actions/checkout@v2
+        - name: Date1
+          run: echo $(date)
 
       Date2:
         name: Printing Date2
         runs-on: windows-latest
         steps:
-          - name: PrintDate2
-            uses: actions/checkout@v2
-          - name: Date2
-            run: echo $(date)
+        - name: PrintDate2
+          uses: actions/checkout@v2
+        - name: Date2
+          run: echo $(date)
 
 
       Date3:
         name: Printing Date3
         runs-on: macos-latest
         steps:
-          - name: PrintDate3
-            uses: actions/checkout@v2
-          - name: Date3
-            run: echo $(date)
+        - name: PrintDate3
+          uses: actions/checkout@v2
+        - name: Date3
+          run: echo $(date)
 
 
       Date4:
         name: Printing Date4
         runs-on: ubuntu-latest
         steps:
-          - name: PrintDate4
-            uses: actions/checkout@v2
-            needs: [Date1, Date2, Date3]
-          - name: Date4
-            run: echo $(date)
+        - name: PrintDate4
+          uses: actions/checkout@v2
+          needs: [Date1, Date2, Date3]
+        - name: Date4
+          run: echo $(date)
