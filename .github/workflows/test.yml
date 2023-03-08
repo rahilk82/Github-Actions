@@ -1,0 +1,25 @@
+name: rahil
+
+on:
+  - push
+
+jobs:
+    Checkout:
+        name: This is my Checkout JOB
+        runs-on: ubuntu-latest
+        steps:
+        - name: Rahil
+          uses: action/checkout@v2
+        - name: Khan
+          run: env | sort
+    Build:
+        name: This is my Build JOB
+        runs-on: windows-latest
+        steps:
+        - name: Rehan
+          uses: action/checkout@v2
+        - name: Khan
+          run: "Get-ChildItem Env: | Sort-Object Name"
+
+
+
