@@ -18,7 +18,7 @@ jobs:
       - name: Upload the Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: rahil
+          name: rahil_${{ env.TAG_NAME }}
           path: .
 
       - name: Bump version and push tag
