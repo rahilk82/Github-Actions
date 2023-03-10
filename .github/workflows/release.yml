@@ -1,4 +1,7 @@
-  on: push
+  on:
+    push:
+      branches:
+        - master
 
   env:
     ARTIFACT_NAME: my-node-artifact
@@ -8,7 +11,7 @@
 
   jobs:
     build:
-      name: Create Release
+      name: Checking the Code
       runs-on: ubuntu-latest
       steps:
         - name: Checkout code
@@ -20,8 +23,8 @@
             name: ${{ env.ARTIFACT_NAME }}
             path: .
 
-        - name: Create Release
-          uses: actions/create-release@v1
+        - name: Github Tag Bump
+          uses: anothrNick/github-tag-action@1.61.0
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           with:
