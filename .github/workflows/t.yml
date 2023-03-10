@@ -1,34 +1,30 @@
-# example 1: on push to master
-name: Bump version
-on:
-  push:
-    branches:
-      - master
-    tags:
-      - "*"
-
-env:
-  TAG_NAME: ${{ github.ref }}
-
-
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: '1'
-
-      - name: Upload the Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: rahil_${{ env.TAG_NAME }}
-          path: .
-
-      - name: Bump version and push tag
-        uses: opspresso/action-version@master
-        env:
-          ROOT_GTHUB_TOKEN: ${{ secrets.ROOT_GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.ref }}
-          WITH_V: true
+## example 1: on push to master
+#name: Bump version
+#on:
+#  push:
+#    branches:
+#      - master
+#    tags:
+#      - "*"
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#        with:
+#          fetch-depth: '1'
+#
+#      - name: Upload the Artifact
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: rahil
+#          path: .
+#
+#      - name: Bump version and push tag
+#        uses: opspresso/action-version@master
+#        env:
+#          ROOT_GTHUB_TOKEN: ${{ secrets.ROOT_GITHUB_TOKEN }}
+#          TAG_NAME: ${{ github.ref }}
+#          WITH_V: true

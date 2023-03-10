@@ -1,0 +1,39 @@
+name: Bump version
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+
+env:
+  TAG_NAME: ${{ github.ref }}
+
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '1'
+      - name: Upload the Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: rahil
+          path: .
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
