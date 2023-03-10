@@ -1,6 +1,9 @@
 name: Upload-artifact
 
-on: [push]
+on: push
+
+      tags:
+        - 'v*'
 
 env:
   ARTIFACT_NAME: my-node-artifact
@@ -12,8 +15,8 @@ jobs:
     steps:
       - name: Check out the Code
         uses: actions/checkout@v2
-      - name: Creating a Tag
-        uses: beyond5959/create-release-github@v1
+        id: create_release
+        uses: actions/create-release@latest
         env:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         with:
