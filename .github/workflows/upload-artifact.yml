@@ -16,6 +16,7 @@ jobs:
         uses: beyond5959/create-release-github@v1
         with:
           tag_name: ${{ env.TAG }}
+          release_name: ${{ env.ARTIFACT_NAME }}
           path:
       - name: Upload the Artifact
         uses: actions/upload-artifact@v2
