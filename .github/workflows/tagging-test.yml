@@ -8,11 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: "0"
-      - name: Bump Version
-        uses: opspresso/action-version@master
-        env:
-          ROOT_ GITHUB_TOKEN: ${{ secrets.ROOT_ GITHUB_TOKEN }}
-          WITH_V: true
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
+      env:
+        ROOT_ GITHUB_TOKEN: ${{ secrets.ROOT_ GITHUB_TOKEN }}
+        WITH_V: true
