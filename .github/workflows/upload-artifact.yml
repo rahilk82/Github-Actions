@@ -25,7 +25,7 @@ jobs:
           release_name: ${{ env.ARTIFACT_NAME }}
           body: |
             Changes in this Release
-            - First Change
+            - First Badal
             - Second Change
           draft: false
           prerelease: false
