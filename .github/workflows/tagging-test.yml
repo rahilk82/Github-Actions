@@ -1,18 +1,15 @@
-# example 1: on push to master
-name: Bump version
-on:
-  push:
-    branches:
-      - master
+name: Version Bump
+
+on: push
+
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+  builder:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@master
         with:
-          fetch-depth: "0"
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.55.0
-        env:
-          ROOT_ GITHUB_TOKEN: ${{ secrets.ROOT_ GITHUB_TOKEN }}
-          WITH_V: true
+          fetch-depth: 1
+
+      - name: Bump Version
+        uses: opspresso/action-version@master
