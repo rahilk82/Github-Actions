@@ -1,15 +1,18 @@
-name: Version Bump
-
-on: push
-
+# example 1: on push to master
+name: Bump version
+on:
+  push:
+    branches:
+      - master
 jobs:
-  builder:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 1
-
+          fetch-depth: "0"
       - name: Bump Version
         uses: opspresso/action-version@master
+        env:
+          ROOT_ GITHUB_TOKEN: ${{ secrets.ROOT_ GITHUB_TOKEN }}
+          WITH_V: true
