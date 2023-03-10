@@ -17,7 +17,13 @@ jobs:
         with:
           tag_name: ${{ env.TAG }}
           release_name: ${{ env.ARTIFACT_NAME }}
-          path:
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
+
       - name: Upload the Artifact
         uses: actions/upload-artifact@v2
         with:
