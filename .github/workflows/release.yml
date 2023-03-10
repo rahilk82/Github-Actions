@@ -9,6 +9,13 @@
       steps:
         - name: Checkout code
           uses: actions/checkout@master
+
+        - name: Upload the Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: ${{ env.ARTIFACT_NAME }}
+            path: .
+
         - name: Create Release
           uses: actions/create-release@v1
           env:
