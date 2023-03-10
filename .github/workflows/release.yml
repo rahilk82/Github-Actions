@@ -5,7 +5,6 @@
 
   env:
     ARTIFACT_NAME: my-node-artifact
-    TAG: v1.1
 
   name: Create Release
 
@@ -15,13 +14,7 @@
       runs-on: ubuntu-latest
       steps:
         - name: Checkout code
-          uses: actions/checkout@master
-
-        - name: Upload the Artifact
-          uses: actions/upload-artifact@v2
-          with:
-            name: ${{ env.ARTIFACT_NAME }}
-            path: .
+          uses: actions/checkout@v3
 
         - name: Github Tag Bump
           uses: anothrNick/github-tag-action@1.61.0
