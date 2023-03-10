@@ -1,5 +1,9 @@
   on: push
 
+  env:
+    ARTIFACT_NAME: my-node-artifact
+    TAG: v1.1
+
   name: Create Release
 
   jobs:
