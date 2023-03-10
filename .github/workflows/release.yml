@@ -17,7 +17,8 @@
           id: create_release
           uses: actions/create-release@latest
           env:
-            GITHUB_TOKEN: ${{ secrets.GH.PAT}} # This token is provided by Actions, you do not need to create your own token
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
           with:
             tag_name: ${{ github.ref }}
             release_name: Release ${{ github.ref }}
